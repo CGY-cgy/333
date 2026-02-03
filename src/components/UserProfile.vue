@@ -1,18 +1,33 @@
+<!--
+个人中心组件
+API配置信息：
+- 开发环境：http://localhost:8080/api/v1
+- 生产环境：https://api.lingjing.com/v1
+- 请求超时时间：30秒
+对应API接口：
+- GET /api/users/profile - 获取用户个人信息
+- PUT /api/users/profile - 更新用户个人信息
+- POST /api/users/avatar - 更新用户头像
+- GET /api/users/security - 获取安全设置
+- PUT /api/users/security - 更新安全设置
+- GET /api/users/preferences - 获取用户偏好设置
+- PUT /api/users/preferences - 更新用户偏好设置
+-->
 <template>
   <div class="profile-container">
     <h2 class="profile-title">个人中心</h2>
     <el-divider />
-    
+
     <el-card shadow="hover" class="profile-card">
       <template #header>
         <div class="card-header">
           <span>个人信息</span>
         </div>
       </template>
-      
+
       <div class="profile-content">
         <div class="profile-avatar-section">
-          <div class="profile-avatar" :style="{ background: avatarColor }">{{ user.name.charAt(0) }}</div>
+          <div class="profile-avatar" :style="{ background: avatarColor }"></div>
           <div class="profile-avatar-actions">
             <el-button type="primary" size="small">
               <el-icon><el-icon-upload /></el-icon>

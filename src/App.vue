@@ -51,6 +51,18 @@
               </template>
               <span>系统设置</span>
             </el-menu-item>
+            <el-menu-item index="community-dynamics">
+              <template #icon>
+                <el-icon><el-icon-s-message /></el-icon>
+              </template>
+              <span>社区动态</span>
+            </el-menu-item>
+            <el-menu-item index="activity">
+              <template #icon>
+                <el-icon><el-icon-s-ticket /></el-icon>
+              </template>
+              <span>活动管理</span>
+            </el-menu-item>
           </el-menu>
         </div>
       </nav>
@@ -100,6 +112,8 @@
             <Membership v-else-if="activeMenu === 'membership'" />
             <Security v-else-if="activeMenu === 'security'" />
             <Settings v-else-if="activeMenu === 'settings'" />
+            <CommunityDynamics v-else-if="activeMenu === 'community-dynamics'" />
+            <Activity v-else-if="activeMenu === 'activity'" />
           </div>
         </el-card>
       </div>
@@ -121,6 +135,8 @@ import Security from './components/Security.vue'
 import Settings from './components/Settings.vue'
 import UserProfile from './components/UserProfile.vue'
 import ChangePassword from './components/ChangePassword.vue'
+import CommunityDynamics from './components/CommunityDynamics.vue'
+import Activity from './components/Activity.vue'
 import { ElMessage } from 'element-plus'
 import {
   ElIcon,
@@ -139,7 +155,9 @@ import {
   Setting,
   Tools,
   Fold,
-  ArrowDown
+  ArrowDown,
+  Message,
+  Ticket
 } from '@element-plus/icons-vue'
 
 // 定义组件别名
@@ -150,6 +168,8 @@ const ElIconSTools = Tools
 const ElIconSSetting = Setting
 const ElIconSFold = Fold
 const ElIconArrowDown = ArrowDown
+const ElIconSMessage = Message
+const ElIconSTicket = Ticket
 
 // 路由和状态管理
 const router = useRouter()
@@ -176,7 +196,9 @@ const pageTitle = computed(() => {
     analytics: '数据分析',
     membership: '会员管理',
     security: '安全管理',
-    settings: '系统设置'
+    settings: '系统设置',
+    'community-dynamics': '社区动态',
+    activity: '活动管理'
   }
   return titles[activeMenu.value] || '数据看板'
 })
@@ -198,6 +220,10 @@ watch(() => route.path, (newPath) => {
     activeMenu.value = 'security'
   } else if (newPath.startsWith('/settings')) {
     activeMenu.value = 'settings'
+  } else if (newPath.startsWith('/community-dynamics')) {
+    activeMenu.value = 'community-dynamics'
+  } else if (newPath.startsWith('/activity')) {
+    activeMenu.value = 'activity'
   }
 })
 
@@ -235,6 +261,12 @@ const handleMenuSelect = (key, keyPath) => {
       break
     case 'settings':
       router.push('/settings')
+      break
+    case 'community-dynamics':
+      router.push('/community-dynamics')
+      break
+    case 'activity':
+      router.push('/activity')
       break
   }
 }

@@ -1,3 +1,14 @@
+<!--
+修改密码组件
+API配置信息：
+- 开发环境：http://localhost:8080/api/v1
+- 生产环境：https://api.lingjing.com/v1
+- 请求超时时间：30秒
+对应API接口：
+- POST /api/users/password/change - 修改密码
+- POST /api/users/password/reset - 重置密码（需要验证）
+- POST /api/users/password/verify - 验证密码强度
+-->
 <template>
   <div class="password-container">
     <h2 class="password-title">修改密码</h2>

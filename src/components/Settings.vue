@@ -1,3 +1,21 @@
+<!--
+系统设置组件
+API配置信息：
+- 开发环境：http://localhost:8080/api/v1
+- 生产环境：https://api.lingjing.com/v1
+- 请求超时时间：30秒
+对应API接口：
+- GET /api/settings/system - 获取系统配置
+- PUT /api/settings/system - 更新系统配置
+- GET /api/settings/security - 获取安全配置
+- PUT /api/settings/security - 更新安全配置
+- GET /api/settings/notification - 获取通知配置
+- PUT /api/settings/notification - 更新通知配置
+- GET /api/settings/storage - 获取存储配置
+- PUT /api/settings/storage - 更新存储配置
+- GET /api/settings/api - 获取API配置
+- PUT /api/settings/api - 更新API配置
+-->
 <template>
   <div class="settings-container">
     <!-- 页面标题和操作 -->
@@ -351,6 +369,28 @@ const saveStorageConfig = () => {
 
 .header-section {
   margin-bottom: 20px;
+}
+
+.top-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 20px;
+  padding: 16px;
+  background-color: var(--el-bg-color-page);
+  border-radius: var(--el-border-radius-base);
+  box-shadow: var(--el-box-shadow-light);
+}
+
+.top-actions .el-button {
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.top-actions .el-button:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--el-box-shadow-light);
 }
 
 .page-title {

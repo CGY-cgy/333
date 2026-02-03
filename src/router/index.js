@@ -64,6 +64,18 @@ const routes = [
     meta: { requiresAuth: true }
   },
   {
+    path: '/community-dynamics',
+    name: 'CommunityDynamics',
+    component: () => import('../components/CommunityDynamics.vue'),
+    meta: { requiresAuth: true }
+  },
+  {
+    path: '/activity',
+    name: 'Activity',
+    component: () => import('../components/Activity.vue'),
+    meta: { requiresAuth: true }
+  },
+  {
     path: '/:pathMatch(.*)*',
     redirect: '/login'
   }

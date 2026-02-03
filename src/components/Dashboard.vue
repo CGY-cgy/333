@@ -1,3 +1,17 @@
+<!--
+数据看板组件
+API配置信息：
+- 开发环境：http://localhost:8080/api/v1
+- 生产环境：https://api.lingjing.com/v1
+- 请求超时时间：30秒
+对应API接口：
+- GET /api/dashboard/overview - 获取数据概览
+- GET /api/dashboard/stats - 获取统计数据
+- GET /api/dashboard/trends - 获取趋势数据
+- GET /api/dashboard/heatmap - 获取热力图数据
+- GET /api/dashboard/report - 获取看板报表
+- GET /api/dashboard/export - 导出看板数据
+-->
 <template>
   <div class="dashboard-container">
     <el-card shadow="hover" class="dashboard-header-card">
